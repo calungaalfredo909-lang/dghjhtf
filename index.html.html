@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>+365 Recetas Proteicas Baratas | Luana 365</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #fff9f5;
+      color: #2e2e2e;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Barra de urgencia */
+    .urgency-bar {
+      background: #ffecd9;
+      color: #b45f2e;
+      text-align: center;
+      padding: 12px 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      border-bottom: 2px solid #ffc89c;
+    }
+
+    .urgency-bar span {
+      margin-right: 6px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(145deg, #fff5eb 0%, #ffe8d9 100%);
+      padding: 50px 0 40px;
+      text-align: center;
+      border-radius: 0 0 40px 40px;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #4a2e1b;
+      margin-bottom: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 .highlight {
+      background: #ffd966;
+      padding: 0 10px;
+      border-radius: 20px;
+      display: inline-block;
+      color: #2e1c0f;
+    }
+
+    .hero .subheadline {
+      font-size: 1.3rem;
+      color: #5c3d2a;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 20px;
+      margin: 30px 0 25px;
+    }
+
+    .badge {
+      background: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #3d2a1b;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+      border: 1px solid #ffdbb5;
+    }
+
+    .badge i {
+      margin-right: 6px;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background: #ff8a3d;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 18px 45px;
+      border-radius: 60px;
+      text-decoration: none;
+      box-shadow: 0 12px 20px rgba(255, 138, 61, 0.3);
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    .btn-cta:hover {
+      background: #e6762c;
+      transform: scale(1.02);
+    }
+
+    /* Secciones genéricas */
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #3a2a1e;
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #ffb175;
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+
+    /* Beneficios */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .benefit-item {
+      background: white;
+      padding: 18px 22px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f5e1d0;
+      font-weight: 500;
+      color: #3d2a1b;
+      font-size: 1.05rem;
+    }
+
+    .benefit-item .emoji {
+      font-size: 1.8rem;
+      min-width: 40px;
+    }
+
+    /* Testimonios */
+    .testimonials {
+      background: #fef5ee;
+      border-radius: 40px;
+      padding: 40px 20px;
+    }
+
+    .testimonial-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 10px 5px 20px;
+      scrollbar-width: thin;
+    }
+
+    .testimonial-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .testimonial-scroll::-webkit-scrollbar-thumb {
+      background: #ffb175;
+      border-radius: 10px;
+    }
+
+    .testimonial-card {
+      min-width: 280px;
+      max-width: 300px;
+      background: white;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+      border: 1px solid #ffe2d0;
+    }
+
+    .testimonial-card .stars {
+      color: #ffb800;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card .user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      background: #ffe0c0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #6b3f1f;
+    }
+
+    .testimonial-card p {
+      color: #4f3a2b;
+      font-size: 0.98rem;
+    }
+
+    /* Recetas destacadas */
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .recipe-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+      border: 1px solid #f7e1d0;
+      transition: 0.2s;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .recipe-img-placeholder {
+      height: 170px;
+      background: linear-gradient(135deg, #ffe0c0, #ffd1b0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #a1662f;
+    }
+
+    .recipe-card h4 {
+      padding: 16px 16px 6px;
+      font-size: 1.15rem;
+      color: #2e1c0f;
+    }
+
+    .recipe-card p {
+      padding: 0 16px 18px;
+      color: #6c4e36;
+      font-size: 0.92rem;
+    }
+
+    /* Bonos */
+    .bonus-section {
+      background: #fff3e8;
+      border-radius: 40px;
+      padding: 40px 20px;
+      margin: 40px 0;
+    }
+
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 20px;
+      margin: 30px 0 20px;
+    }
+
+    .bonus-item {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 12px;
+      text-align: center;
+      border: 1px dashed #ffb175;
+    }
+
+    .bonus-item .price {
+      text-decoration: line-through;
+      color: #b99172;
+      font-size: 0.9rem;
+      margin: 8px 0 4px;
+    }
+
+    .bonus-item .free {
+      color: #2e7d32;
+      font-weight: 700;
+      background: #e8f5e9;
+      padding: 4px 12px;
+      border-radius: 30px;
+      display: inline-block;
+      font-size: 0.85rem;
+    }
+
+    .total-bonus {
+      text-align: center;
+      font-weight: 700;
+      color: #2e7d32;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* Planes */
+    .pricing-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .plan-card {
+      background: white;
+      border-radius: 30px;
+      padding: 30px 25px;
+      flex: 1 1 280px;
+      max-width: 380px;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0dac8;
+      position: relative;
+    }
+
+    .plan-card.popular {
+      border: 3px solid #ff8a3d;
+      background: #fffdfb;
+    }
+
+    .popular-tag {
+      background: #ff8a3d;
+      color: white;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      position: absolute;
+      top: -14px;
+      right: 25px;
+      letter-spacing: 0.5px;
+    }
+
+    .plan-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: #3a2a1e;
+    }
+
+    .plan-card .price-old {
+      text-decoration: line-through;
+      color: #ad8b73;
+      font-size: 1rem;
+    }
+
+    .plan-card .price-now {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #2e1c0f;
+      margin: 5px 0 15px;
+    }
+
+    .plan-card .price-now small {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin: 20px 0 25px;
+    }
+
+    .plan-features li {
+      padding: 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #4f3a2b;
+      font-size: 0.98rem;
+    }
+
+    .plan-features li:before {
+      content: "✓";
+      color: #2e7d32;
+      font-weight: 800;
+    }
+
+    .plan-card .btn-cta {
+      width: 100%;
+      text-align: center;
+      padding: 14px 10px;
+      font-size: 1.1rem;
+    }
+
+    /* Garantía */
+    .guarantee {
+      text-align: center;
+      background: #f0f9f0;
+      border-radius: 40px;
+      padding: 40px 25px;
+      margin: 40px 0;
+      border: 1px solid #b8e0b8;
+    }
+
+    .guarantee h3 {
+      font-size: 1.9rem;
+      color: #1e4a1e;
+    }
+
+    /* FAQ */
+    .faq-item {
+      background: white;
+      border-radius: 20px;
+      padding: 20px 25px;
+      margin-bottom: 15px;
+      border: 1px solid #f0dac8;
+    }
+
+    .faq-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #2e1c0f;
+    }
+
+    .faq-item p {
+      color: #5f4a39;
+      font-size: 0.98rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #2e1c0f;
+      color: #d9c2b0;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .btn-cta {
+        padding: 16px 28px;
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de urgencia -->
+  <div class="urgency-bar">
+    <span>⏰</span> La promoción de esta página termina el día 25/10/2026
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1><span class="highlight">+365 Recetas Proteicas</span> Baratas Para Ahorrar<br>Sin Renunciar al Sabor</h1>
+      <p class="subheadline">Recetas proteicas prácticas para comer bien todos los días</p>
+      <div class="badge-group">
+        <span class="badge">📱 Acceso inmediato por WhatsApp</span>
+        <span class="badge">🔒 Compra 100% Segura</span>
+        <span class="badge">🛡️ 15 Días de Garantía Total</span>
+      </div>
+      <a href="#" class="btn-cta">QUIERO MIS RECETAS AHORA →</a>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="section container">
+    <h2 class="section-title">Beneficios del Producto</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item"><span class="emoji">🍗</span> 365 recetas proteicas para el día a día</div>
+      <div class="benefit-item"><span class="emoji">🥞</span> Desayunos, snacks y comidas</div>
+      <div class="benefit-item"><span class="emoji">📖</span> Recetas simples y fáciles de preparar</div>
+      <div class="benefit-item"><span class="emoji">💪</span> Más proteína sin dieta aburrida</div>
+      <div class="benefit-item"><span class="emoji">🍽️</span> Platos sabrosos y prácticos para la rutina</div>
+      <div class="benefit-item"><span class="emoji">👩‍🍳</span> Fáciles incluso para quien no sabe cocinar</div>
+      <div class="benefit-item"><span class="emoji">✨</span> Más variedad y menos monotonía</div>
+      <div class="benefit-item"><span class="emoji">📱</span> Acceso en el celular o para imprimir</div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="container">
+    <div class="testimonials">
+      <h2 class="section-title">Mira lo que dicen de las recetas</h2>
+      <p style="text-align:center; margin-top:-20px; margin-bottom:20px; color:#7a5e4a;">Desliza para ver más testimonios</p>
+      <div class="testimonial-scroll">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="user"><div class="avatar">AM</div><strong>Ana M.</strong></div>
+          <p>¡Hice la papa rellena con carne molida y queso gratinado y quedó increíble! Toda la familia lo amó.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="user"><div class="avatar">JS</div><strong>Juliana S.</strong></div>
+          <p>Compré por los postres proteicos y ya hice panqueque, brownie y mousse. Todo simple y delicioso.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="user"><div class="avatar">CF</div><strong>Camila F.</strong></div>
+          <p>¡Aprendí a hacer el wrap de pollo y cambió mi almuerzo! Práctico, sabroso y me mantiene saciada.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="user"><div class="avatar">PR</div><strong>Patricia R.</strong></div>
+          <p>Empecé a entrenar y necesitaba comer más proteína sin gastar mucho. Las recetas baratas me salvaron.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="user"><div class="avatar">RB</div><strong>Renata B.</strong></div>
+          <p>Las recetas están bien explicadas y usan ingredientes accesibles. Ya son fijas aquí en casa.</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="user"><div class="avatar">LC</div><strong>Larissa C.</strong></div>
+          <p>¡El arroz cremoso con pollo quedó maravilloso! Cremoso en su punto, súper sabroso y fácil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recetas -->
+  <section class="section container">
+    <h2 class="section-title">MIRA LO QUE VAS A PREPARAR</h2>
+    <div class="recipe-grid">
+      <div class="recipe-card"><div class="recipe-img-placeholder">🍗</div><h4>POLLO CREMOSO CON ARROZ Y QUESO</h4><p>Cremoso, reconfortante y lleno de proteína</p></div>
+      <div class="recipe-card"><div class="recipe-img-placeholder">🥚</div><h4>TARTA DE HUEVO CON VERDURAS</h4><p>Ligera, nutritiva y perfecta para cualquier comida</p></div>
+      <div class="recipe-card"><div class="recipe-img-placeholder">🌯</div><h4>WRAP DE POLLO PROTEICO</h4><p>Práctico, sabroso e ideal para el día a día</p></div>
+      <div class="recipe-card"><div class="recipe-img-placeholder">🍖</div><h4>ALBÓNDIGAS DE CARNE JUGOSAS</h4><p>Suaves, sazonadas y llenas de sabor</p></div>
+      <div class="recipe-card"><div class="recipe-img-placeholder">🥔</div><h4>BOCADITOS DE PAPA CON CARNE MOLIDA</h4><p>Crujientes por fuera, rellenos e irresistibles</p></div>
+      <div class="recipe-card"><div class="recipe-img-placeholder">🫓</div><h4>TAPIOCA DE POLLO DESMENUZADO</h4><p>Rápida, ligera y llena de proteína</p></div>
+      <div class="recipe-card"><div class="recipe-img-placeholder">🥗</div><h4>ENSALADA PROTEICA DELICIOSA</h4><p>Fresca, sabrosa y súper nutritiva</p></div>
+      <div class="recipe-card"><div class="recipe-img-placeholder">🧀</div><h4>CARNE MOLIDA CREMOSA CON QUESO</h4><p>Cremosa, jugosa y llena de sabor</p></div>
+    </div>
+    <p style="text-align:center; margin-top:30px; font-size:1.2rem; font-weight:600;">+ 357 OTRAS recetas increíbles de la Chef Luana!</p>
+    <p style="text-align:center; color:#6c4e36;">Divididas en categorías completas: Desayuno (50), Panqueques y Pastas (55), Almuerzos y Cenas (70), Snacks (50), Postres (65), Cremosas (35), Salsas (25), Bebidas (15)</p>
+  </section>
+
+  <!-- Para quién es -->
+  <section class="section container">
+    <h2 class="section-title">Este libro es perfecto para ti que:</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item"><span class="emoji">🍳</span> Quieres comer mejor sin vivir de pollo y huevo todos los días</div>
+      <div class="benefit-item"><span class="emoji">💪</span> Quieres incluir más proteína en la rutina sin complicaciones</div>
+      <div class="benefit-item"><span class="emoji">🥘</span> Buscas recetas prácticas, sabrosas y fáciles de hacer en casa</div>
+      <div class="benefit-item"><span class="emoji">🔄</span> Te cansaste de repetir siempre las mismas comidas</div>
+      <div class="benefit-item"><span class="emoji">🕒</span> Necesitas ideas para desayuno, almuerzo, cena y snacks</div>
+      <div class="benefit-item"><span class="emoji">😋</span> Quieres comidas que sacien más sin renunciar al sabor</div>
+    </div>
+  </section>
+
+  <!-- Bonos -->
+  <div class="bonus-section container">
+    <h2 class="section-title">🎁 COMPRA AHORA Y RECIBE + 5 BONOS EXCLUSIVOS</h2>
+    <div class="bonus-grid">
+      <div class="bonus-item"><h4>Lista de Compras Esenciales</h4><p class="price">R$ 29,90</p><span class="free">✓ Gratis Hoy</span></div>
+      <div class="bonus-item"><h4>Menú de 30 Días</h4><p class="price">R$ 39,90</p><span class="free">✓ Gratis Hoy</span></div>
+      <div class="bonus-item"><h4>Guía de Sustituciones</h4><p class="price">R$ 24,90</p><span class="free">✓ Gratis Hoy</span></div>
+      <div class="bonus-item"><h4>50 Loncheras Proteicas</h4><p class="price">R$ 34,90</p><span class="free">✓ Gratis Hoy</span></div>
+      <div class="bonus-item"><h4>90 Recetas Sin Gluten y Lactosa</h4><p class="price">R$ 39,90</p><span class="free">✓ Gratis Hoy</span></div>
+    </div>
+    <p class="total-bonus">💚 ¡VALOR TOTAL DE LOS BONOS → TODO GRATIS HOY!</p>
+  </div>
+
+  <!-- Planes -->
+  <section class="container">
+    <h2 class="section-title">Elige tu plan</h2>
+    <p style="text-align:center; color:#7a5e4a; margin-top:-20px; margin-bottom:20px;">Oferta especial por tiempo limitado · Acceso inmediato</p>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <h3>⚡ Oferta Básica</h3>
+        <p style="font-weight:600; color:#3a2a1e;">+365 Recetas Proteicas Baratas</p>
+        <ul class="plan-features">
+          <li>365 Recetas Proteicas para el día a día</li>
+          <li>Acceso Vitalicio</li>
+          <li>Acceso Inmediato por WhatsApp</li>
+        </ul>
+        <p class="price-old">De R$ 97,00 por solo</p>
+        <p class="price-now">R$ 10</p>
+        <a href="#" class="btn-cta">COMPRAR AHORA</a>
+      </div>
+      <div class="plan-card popular">
+        <span class="popular-tag">MÁS VENDIDA</span>
+        <h3>🔥 Súper Oferta</h3>
+        <p style="font-weight:600; color:#3a2a1e;">+500 Recetas Proteicas Premium</p>
+        <ul class="plan-features">
+          <li>500 Recetas Proteicas Completas</li>
+          <li>Postres, Panqueques, Pastas y Snacks</li>
+          <li>Recetas Cremosas y Reconfortantes</li>
+          <li>Acceso Vitalicio</li>
+          <li>Entrega Inmediata por Correo Electrónico</li>
+          <li><strong>¡Bonos Exclusivos!</strong></li>
+          <li>🎁 Menú de 30 Días</li>
+          <li>🎁 Guía de Sustituciones Inteligentes</li>
+          <li>🎁 Lista de Compras Esenciales</li>
+        </ul>
+        <p class="price-old">De R$ 197,00 por solo</p>
+        <p class="price-now">R$ 18</p>
+        <a href="#" class="btn-cta">QUIERO EL PREMIUM</a>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:25px; font-weight:500;">📲 Acceso inmediato por WhatsApp</p>
+  </section>
+
+  <!-- Prueba social -->
+  <section class="section container" style="text-align:center;">
+    <h3 style="font-size:1.8rem;">3.500+ PERSONAS YA TRANSFORMARON SU RUTINA EN LA COCINA</h3>
+    <div style="display:flex; align-items:center; justify-content:center; gap:15px; flex-wrap:wrap; margin:20px 0;">
+      <span style="font-size:2.5rem; font-weight:800; color:#b45f2e;">4.9</span>
+      <span style="font-size:1.5rem; color:#ffb800;">★★★★★</span>
+      <span>3.541 valoraciones</span>
+    </div>
+    <p>Mira lo que dicen quienes ya compraron.</p>
+  </section>
+
+  <!-- Garantía -->
+  <div class="guarantee container">
+    <h3>🛡️ Riesgo Cero</h3>
+    <h2 style="font-size:1.8rem; margin:10px 0;">Garantía Incondicional de 15 Días</h2>
+    <p>Prueba las recetas por 15 días. Si no quedas 100% satisfecho(a), te devolvemos todo tu dinero, sin preguntas.</p>
+  </div>
+
+  <!-- Cómo recibir -->
+  <section class="section container" style="text-align:center;">
+    <h2 class="section-title">Cómo vas a RECIBIR</h2>
+    <p style="margin-top:-20px; margin-bottom:30px;">Acceso liberado al instante, a tu manera ✨</p>
+    <div class="benefits-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
+      <div class="benefit-item" style="flex-direction:column; text-align:center;"><span style="font-size:2rem;">📱</span><strong>En el Celular</strong><br><small>Accede donde estés</small></div>
+      <div class="benefit-item" style="flex-direction:column; text-align:center;"><span style="font-size:2rem;">💻</span><strong>En la Computadora</strong><br><small>Pantalla grande para cocinar</small></div>
+      <div class="benefit-item" style="flex-direction:column; text-align:center;"><span style="font-size:2rem;">🖨️</span><strong>Para Imprimir</strong><br><small>Tu cuaderno de recetas</small></div>
+      <div class="benefit-item" style="flex-direction:column; text-align:center;"><span style="font-size:2rem;">⚡</span><strong>Envío Inmediato</strong><br><small>Liberado en segundos</small></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container">
+    <h2 class="section-title">Preguntas Frecuentes</h2>
+    <div class="faq-item"><h4>¿Cómo recibo el acceso?</h4><p>Recibes el acceso inmediatamente por WhatsApp justo después de la confirmación de la compra. Solo ábrelo y empieza a usar desde el celular.</p></div>
+    <div class="faq-item"><h4>¿Las recetas son realmente sabrosas?</h4><p>Sí. Las recetas proteicas fueron pensadas para ser sabrosas y prácticas, sin sabor a dieta.</p></div>
+    <div class="faq-item"><h4>¿Los ingredientes son caros?</h4><p>No. La mayoría de las recetas usa ingredientes baratos y fáciles de encontrar en cualquier mercado.</p></div>
+    <div class="faq-item"><h4>¿Sirve para toda la familia?</h4><p>Sí. Las recetas fueron creadas para agradar a adultos y niños.</p></div>
+    <div class="faq-item"><h4>¿Es difícil de hacer?</h4><p>No. Fueron hechas para la cocina del día a día, con paso a paso directo.</p></div>
+    <div class="faq-item"><h4>¿Necesito saber cocinar?</h4><p>No. Incluso quien tiene poca práctica puede seguirlas.</p></div>
+    <div class="faq-item"><h4>¿Y si no me gusta?</h4><p>Tienes 15 días de garantía incondicional. Solo solicita el reembolso dentro del plazo.</p></div>
+    <div class="faq-item"><h4>¿Por cuánto tiempo tengo acceso?</h4><p>El acceso es vitalicio. Compras una vez y puedes consultar siempre que quieras.</p></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Luana 365 Recetas Proteicas © 2026 · Todos los derechos reservados</p>
+    <p style="margin-top:8px; opacity:0.7;">Este sitio no está afiliado a Facebook. Los resultados pueden variar.</p>
+  </footer>
+
+</body>
+</html>
